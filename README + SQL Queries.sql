@@ -1,17 +1,3 @@
--- Using a natural language index on an email corpus
-
--- Make sure hidden-dist.py is set up
-
--- Run only python3 gmane.py
--- Pulls data from the web and puts it into messages table
--- Load at least 300 messages (can be stopped and started)
-
--- CREATE TABLE IF NOT EXISTS messages
-
--- CREATE TABLE IF NOT EXISTS messages
---    (id SERIAL, email TEXT, sent_at TIMESTAMPTZ,
---     subject TEXT, headers TEXT, body TEXT)
-
 -- Making a language oriented inverted index in mail messages
 
 CREATE INDEX messages_gin ON messages USING gin(to_tsvector('english', body));
